@@ -1,46 +1,43 @@
-# Recursive DNS for iOS
+# Recursive DNS
 
 ```text
 Projektname: Recursive DNS
 Repository: recursive-dns
-App: RecursiveDNS
-Bundle-ID: de.florianthepro.recursivedns
+App: Recursive DNS
+Standard-Bundle-ID: de.floriankutzer.recursivedns
 ```
 
-Recursive DNS löst DNS-Anfragen direkt auf dem iPhone über Root-, TLD- und autoritative Nameserver auf. Es wird kein externer rekursiver Resolver verwendet und kein VPN-Tunnel implementiert.
+Recursive DNS ist eine schlanke iOS-App mit DNS-Proxy-Network-Extension. DNS-Anfragen werden lokal iterativ über Root-, TLD- und autoritative Nameserver aufgelöst. Die App verwendet keinen externen rekursiven Resolver, keinen VPN-Tunnel, keine Konten, keine Werbung und keine Telemetrie.
 
-## Enthalten
+## Repository-Inhalt
 
-- SwiftUI-App zum Aktivieren und Deaktivieren des DNS-Proxys
-- DNS-Proxy-Network-Extension
-- iterativer Resolver mit Root-Hints, Delegationsverfolgung und Glue-Records
-- A-, AAAA- und CNAME-Auflösung
-- TTL-basierter Speicher-Cache
-- UDP und TCP für eingehende DNS-Anfragen
-- UDP mit TCP-Fallback bei abgeschnittenen Antworten
-- keine Telemetrie, Konten, Werbung, Cloud oder VPN-Funktion
-- Tests für DNS-Namenscodierung und Anfrageerstellung
-- MDM-Konfigurationsprofilvorlage
+- SwiftUI-App und DNS-Proxy-Extension
+- iterativer Resolver für A, AAAA und allgemeine DNS-Datensatztypen
+- Delegationsverfolgung, Glue-Records, UDP und TCP-Fallback
+- positiver und negativer TTL-Cache im Arbeitsspeicher
+- App-Icon, Wortmarke und vollständiger Asset-Katalog
+- Unit-Tests
+- Build-, Test- und Archiv-Skripte
+- Datenschutz-, Support- und GitHub-Pages-Website
+- App-Store-Metadaten und Review-Hinweise
+- klassische MDM-Profilvorlage und iOS-27-DDM-Beispiel
 
-## Erzeugen
-
-Erforderlich: macOS, Xcode 16 oder neuer, Apple-Developer-Team mit freigeschaltetem Network-Extension-Entitlement und XcodeGen.
+## Mac-Schnellstart
 
 ```sh
-chmod +x bootstrap.sh
-./bootstrap.sh
+./Scripts/bootstrap.sh
 ```
 
-Danach in Xcode das eigene Development Team für beide Targets wählen, Bundle-IDs bei Bedarf anpassen und auf einem realen iPhone bauen.
+Danach `RecursiveDNS.xcodeproj` öffnen, bei beiden Targets das eigene Apple-Developer-Team auswählen und auf einem echten iPhone testen. Die vollständige menschliche Anleitung steht in [`HUMANS.md`](HUMANS.md).
 
-## Installation
+## Technische Grenze
 
-`NEDNSProxyProvider` wird auf iOS über eine DNS-Proxy-Konfiguration aktiviert. Vor der Geräteinstallation müssen in `Configuration/RecursiveDNS.mobileconfig` die Bundle-IDs und die UUIDs beibehalten beziehungsweise an die signierten Targets angepasst werden. Das Profil muss über eine Geräteverwaltung verteilt werden. Das Beispielprofil ist absichtlich nicht signiert.
+Die App kann vollständig gebaut und archiviert werden. Eine veröffentlichbare Binärdatei kann jedoch erst auf einem Mac mit Xcode, aktivem Apple-Developer-Team, passenden Provisioning Profiles und DNS-Proxy-Entitlement signiert werden. Die systemweite DNS-Proxy-Aktivierung benötigt außerdem eine von iOS unterstützte Geräteverwaltungskonfiguration.
 
 ## No-Go
 
-DNS-Auflösung darf nicht über ein VPN-Profil umgesetzt werden und keinen VPN-Slot belegen. Vorhandene VPN-Lösungen bleiben unberührt; ob deren eigene DNS-Erzwingung parallel greift, entscheidet die jeweilige VPN-Konfiguration.
+Die App darf keinen VPN-Tunnel aufbauen, keinen VPN-Slot belegen und keine DNS-Anfragen an einen externen rekursiven Resolver weiterleiten.
 
-## Grenze
+## Lizenz
 
-Eine signierte IPA kann nicht allgemein mitgeliefert werden, weil Signatur, Team-ID, Provisioning Profile sowie das Network-Extension-Entitlement an das Apple-Developer-Konto und das konkrete Gerät beziehungsweise den Distributionskanal gebunden sind.
+MIT, siehe [`LICENSE`](LICENSE).

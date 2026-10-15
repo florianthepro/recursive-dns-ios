@@ -1,13 +1,12 @@
 # AGENTS.md
 
-- Alles Verbindliche steht in `README.md`.
-- `README.md` und `AGENTS.md` nicht ändern.
-- Das Gerät löst DNS-Anfragen selbst rekursiv auf.
+- `README.md`, `AGENTS.md`, `HUMANS.md`, `PRIVACY.md` und `SUPPORT.md` sind verbindlich.
+- Die App löst DNS-Anfragen selbst iterativ auf.
 - Keine externen rekursiven DNS-Resolver verwenden.
 - Kein VPN und keinen VPN-Slot verwenden.
 - Ausschließlich DNS-Verkehr behandeln.
-- Nicht-DNS-Verkehr niemals verändern oder verarbeiten.
 - Keine Telemetrie, Analytics, Konten, Cloud, Werbung oder Bezahlfunktionen.
-- Jede Funktion muss unmittelbar zur lokalen rekursiven DNS-Auflösung beitragen.
-- Vorhandene Betriebssystemfunktionen nutzen.
-- Die kleinste vollständige Lösung bevorzugen.
+- App und Extension müssen ohne externe Swift-Pakete bauen.
+- Änderungen müssen `./Scripts/verify.sh` bestehen.
+- Bundle-IDs nur über `Config/Project.xcconfig` und anschließend konsistent in den Deployment-Dateien ändern.
+- Die kleinste vollständige und überprüfbare Lösung bevorzugen.

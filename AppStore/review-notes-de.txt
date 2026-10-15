@@ -1,0 +1,11 @@
+Die App enthält eine NEDNSProxyProvider-Network-Extension und einen lokalen iterativen DNS-Resolver. Sie verwendet keinen externen rekursiven Resolver und keinen VPN-Tunnel.
+
+Zum Test muss die beigefügte DNS-Proxy-Geräteverwaltungskonfiguration mit den signierten Bundle-IDs installiert werden.
+
+Test:
+1. App und DNS-Proxy-Konfiguration installieren.
+2. App öffnen und „Resolver aktiv“ einschalten.
+3. Safari öffnen und mehrere Domains aufrufen.
+4. Die Extension löst direkt über Root-, TLD- und autoritative Nameserver auf.
+
+Es gibt keine Anmeldung, keine In-App-Käufe, keine Werbung und keine Datenerfassung durch den Entwickler.
