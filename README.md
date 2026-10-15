@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Disclaimer: This repository was created using AI.
+
 # Recursive DNS
 
 ```text
