@@ -1,0 +1,42 @@
+name: RecursiveDNS
+options:
+  bundleIdPrefix: de.florianthepro
+  deploymentTarget:
+    iOS: "17.0"
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    DEVELOPMENT_TEAM: ""
+targets:
+  RecursiveDNS:
+    type: application
+    platform: iOS
+    sources: [RecursiveDNS]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: de.florianthepro.recursivedns
+        CODE_SIGN_ENTITLEMENTS: RecursiveDNS/RecursiveDNS.entitlements
+        INFOPLIST_FILE: RecursiveDNS/Info.plist
+    dependencies:
+      - target: RecursiveDNSProxy
+        embed: true
+  RecursiveDNSProxy:
+    type: app-extension
+    platform: iOS
+    sources:
+      - RecursiveDNSProxy
+      - Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: de.florianthepro.recursivedns.proxy
+        CODE_SIGN_ENTITLEMENTS: RecursiveDNSProxy/RecursiveDNSProxy.entitlements
+        INFOPLIST_FILE: RecursiveDNSProxy/Info.plist
+        APPLICATION_EXTENSION_API_ONLY: YES
+  RecursiveDNSTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - RecursiveDNSTests
+      - Shared
+    dependencies:
+      - target: RecursiveDNS
