@@ -1,0 +1,498 @@
+<//USR//>@<//HOST//> recursive-dns-ios % ./start.sh
+Mac: x86_64, macOS 15.8.1
+
+==> Administratorrechte vorbereiten
+Password:
+
+==> Lade xcodes CLI temporr
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 7634k  100 7634k    0     0  18.2M      0 --:--:-- --:--:-- --:--:-- 18.2M
+2.1.0
+
+==> Installiere Xcode 16.4 vollstndig ber SSH
+Apple-ID (E-Mail): <//MAIL//>
+xcodes fragt verdeckt nach Apple-ID-Passwort und gegebenenfalls 2FA-Code.
+Apple ID Password (<//MAIL//>):
+Two-factor authentication is enabled for this account.
+
+Enter "sms" without quotes to exit this prompt and choose a phone number to send an SMS security code to.
+Enter the 6 digit code from one of your trusted devices:757268
+OSStatus error:[-25308] User interaction is not allowed.
+
+Downloading with urlSession - for faster downloads install aria2 (`brew install aria2`)
+(1/6) Downloading Xcode 16.4.0+16F6: 100 %
+(2/6) Unarchiving Xcode (This can take a while)
+Using experimental unxip. If you encounter any issues, remove the flag and try again
+(3/6) Moving Xcode to /Applications/Xcode-16.4.0.app
+(4/6) Moving Xcode archive Xcode-16.4.0+16F6.xip to the Trash
+(5/6) Checking security assessment and code signing
+(6/6) Finishing installation
+
+Xcode 16.4.0 has been installed to /Applications/Xcode-16.4.0.app
+Xcode 16.4
+Build version 16F6
+
+==> Installiere die aktuelle iOS-Simulator-Runtime
+Downloading iOS 18.6 Simulator (22G86): 99,4 % (8,81 GB of 8,86 GB)2026-10-16 10:50:04.018 xcodebuild[32321:113498]  DVTDownloadable: Observed finish. Cancelling download asset. {
+    assetId = 7fd8477b73d7b67a321fff7d87723eed3c628424;
+    assetIdHash = 6b5c9f492c5bf7c7f403744b96ae43221f28b3d3;
+    assetType = "com.apple.MobileAsset.iOSSimulatorRuntime";
+    attributesHash = a33bae11d4a977fa7d81f3089067869304205567;
+    contentHash = d458d165c731d3d9e8677506f676355d24b9c398;
+    nonIdHash = 40aa0e36353d6bb8b278302ce64d250a8eec56d2;
+    pallasDynamicAssetIdHash = d7904ac1d93cc3702244074c49aafad923a6e2b4;
+    policyHash = 48ee56a7ce4dc99081d225ce66a56fac728d5bf3;
+    urlHash = a7fdecd27f159957bfd416e3777146a4037d012f;
+}, error: (null)
+Downloading iOS 18.6 Simulator (22G86): Done.
+== Disk Images ==
+-- iOS --
+iOS 18.6 (22G86) - 123023FB-8554-4354-BA91-36A83C676E19 (Ready)
+
+Total Disk Images: 1 (8.2G)
+DriverKit SDKs:
+        DriverKit 24.5                  -sdk driverkit24.5
+
+iOS SDKs:
+        iOS 18.5                        -sdk iphoneos18.5
+
+iOS Simulator SDKs:
+        Simulator - iOS 18.5            -sdk iphonesimulator18.5
+
+macOS SDKs:
+        macOS 15.5                      -sdk macosx15.5
+        macOS 15.5                      -sdk macosx15.5
+
+tvOS SDKs:
+        tvOS 18.5                       -sdk appletvos18.5
+
+tvOS Simulator SDKs:
+        Simulator - tvOS 18.5           -sdk appletvsimulator18.5
+
+visionOS SDKs:
+        visionOS 2.5                    -sdk xros2.5
+
+visionOS Simulator SDKs:
+        Simulator - visionOS 2.5        -sdk xrsimulator2.5
+
+watchOS SDKs:
+        watchOS 11.5                    -sdk watchos11.5
+
+watchOS Simulator SDKs:
+        Simulator - watchOS 11.5        -sdk watchsimulator11.5
+
+
+==> Lade XcodeGen temporr
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 4185k  100 4185k    0     0  11.9M      0 --:--:-- --:--:-- --:--:-- 11.9M
+Version: 2.46.0
+
+==> Lade das aktuelle Projekt-Repository
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  584k    0  584k    0     0   883k      0 --:--:-- --:--:-- --:--:--  883k
+
+==> Prfe Repository
+Repository-Prüfung erfolgreich.
+
+==> Erzeuge Xcode-Projekt
+⚙️  Generating plists...
+⚙️  Generating project...
+⚙️  Writing project...
+Created project at /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+
+==> Prfe verfgbare Build-Ziele
+Command line invocation:
+    /Applications/Xcode-16.4.0.app/Contents/Developer/usr/bin/xcodebuild -project RecursiveDNS.xcodeproj -scheme RecursiveDNS -showdestinations
+
+
+
+        Available destinations for the "RecursiveDNS" scheme:
+                { platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+                { platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+                { platform:iOS Simulator, arch:x86_64, id:0397D828-6D3D-493C-865A-142E82DC0909, OS:18.6, name:iPad (A16) }
+                { platform:iOS Simulator, arch:x86_64, id:09F96549-6CAB-4D19-8450-682BEE52DE55, OS:18.6, name:iPad Air 11-inch (M3) }
+                { platform:iOS Simulator, arch:x86_64, id:552BCD8E-2519-4895-97A0-33FEE3F11711, OS:18.6, name:iPad Air 13-inch (M3) }
+                { platform:iOS Simulator, arch:x86_64, id:C657AB26-91FB-4100-9A32-0B1039167436, OS:18.6, name:iPad Pro 11-inch (M4) }
+                { platform:iOS Simulator, arch:x86_64, id:AD402C2A-5B02-4D77-BEBE-B0E5AA71D3D2, OS:18.6, name:iPad Pro 13-inch (M4) }
+                { platform:iOS Simulator, arch:x86_64, id:264875C4-580E-43D6-AEFF-B8F3C4957229, OS:18.6, name:iPad mini (A17 Pro) }
+                { platform:iOS Simulator, arch:x86_64, id:9048F46B-39AF-4252-AE0A-D228AAE7CE9F, OS:18.6, name:iPhone 16 }
+                { platform:iOS Simulator, arch:x86_64, id:7BB0F601-B48C-4A44-AC38-5F9FC23318F5, OS:18.6, name:iPhone 16 Plus }
+                { platform:iOS Simulator, arch:x86_64, id:E3C24355-6265-489B-A5C6-87AE7C304143, OS:18.6, name:iPhone 16 Pro }
+                { platform:iOS Simulator, arch:x86_64, id:0C4B1430-E67C-4621-8B2D-9567BDCF6363, OS:18.6, name:iPhone 16 Pro Max }
+                { platform:iOS Simulator, arch:x86_64, id:6230E003-916F-48F6-9865-8BD8C8788FB8, OS:18.6, name:iPhone 16e }
+
+==> Baue App und DNS-Proxy-Extension fr den iOS-Simulator
+Command line invocation:
+    /Applications/Xcode-16.4.0.app/Contents/Developer/usr/bin/xcodebuild -project RecursiveDNS.xcodeproj -scheme RecursiveDNS -configuration Release -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/recursive-dns-build.yh278k/DerivedData CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO clean build
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+    SDKROOT = iphonesimulator18.5
+
+ComputePackagePrebuildTargetDependencyGraph
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'RecursiveDNS' in project 'RecursiveDNS'
+        ➜ Explicit dependency on target 'RecursiveDNSProxy' in project 'RecursiveDNS'
+    Target 'RecursiveDNSProxy' in project 'RecursiveDNS' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode-16.4.0.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /tmp/recursive-dns-build.yh278k/recursive-dns-ios/App/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode-16.4.0.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: d7e18376d1a19eeb75da8bebbbe63898
+Build description path: /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/XCBuildData/d7e18376d1a19eeb75da8bebbbe63898.xcbuilddata
+CreateBuildDirectory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    builtin-create-build-directory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products
+
+ClangStatCache /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -o /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache
+
+CreateBuildDirectory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    builtin-create-build-directory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex
+
+CreateBuildDirectory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphonesimulator
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    builtin-create-build-directory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Release-iphonesimulator
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS-d714f18635caed76f770bd1f5f57dd8f-VFS-iphonesimulator/all-product-headers.yaml
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS-d714f18635caed76f770bd1f5f57dd8f-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios/RecursiveDNS.xcodeproj
+    builtin-create-build-directory /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.DependencyStaticMetadataFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.DependencyMetadataFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy.DependencyMetadataFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-non-framework-target-headers.hmap (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftConstValuesFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.LinkFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.LinkFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-OutputFileMap.json (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.LinkFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.LinkFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftConstValuesFileList (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-OutputFileMap.json (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.DependencyStaticMetadataFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-project-headers.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-project-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.DependencyMetadataFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS.DependencyMetadataFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-own-target-headers.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-own-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-generated-files.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-generated-files.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-all-target-headers.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-all-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-all-non-framework-target-headers.hmap (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/RecursiveDNS-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS_const_extract_protocols.json (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.SwiftFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.SwiftFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.SwiftConstValuesFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.LinkFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS.LinkFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS-OutputFileMap.json (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/x86_64/RecursiveDNS-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS_const_extract_protocols.json (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.SwiftFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.SwiftFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.SwiftConstValuesFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.LinkFileList (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS.LinkFileList
+
+WriteAuxiliaryFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS-OutputFileMap.json (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    write-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNS.build/Objects-normal/arm64/RecursiveDNS-OutputFileMap.json
+
+MkDir /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNSProxy.appex (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    /bin/mkdir -p /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNSProxy.appex
+
+MkDir /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNS.app/PlugIns (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    /bin/mkdir -p /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNS.app/PlugIns
+
+MkDir /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNS.app (in target 'RecursiveDNS' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    /bin/mkdir -p /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNS.app
+
+ProcessInfoPlistFile /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNSProxy.appex/Info.plist /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/Info.plist (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-infoPlistUtility /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/Info.plist -producttype com.apple.product-type.app-extension -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/RecursiveDNSProxy.appex/Info.plist
+
+SwiftDriver RecursiveDNSProxy normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-SwiftDriver -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+SwiftDriver RecursiveDNSProxy normal arm64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-SwiftDriver -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+SwiftDriver\ Compilation RecursiveDNSProxy normal arm64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-Swift-Compilation -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+SwiftDriver\ Compilation RecursiveDNSProxy normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-Swift-Compilation -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+SwiftCompile normal arm64 Compiling\ DNSProxyProvider.swift,\ DNSWire.swift,\ IterativeResolver.swift,\ Preferences.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+
+CompileSwift normal arm64 (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:22:32: error: '=' must have consistent whitespace on both sides
+                cache[question]=.init(response:withID(final,0),expiry:Date().addingTimeInterval(TimeInterval(ttl))); return final
+                               ^
+
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:26:78: error: '==' is not a postfix unary operator
+                guard names.contains(where:{$0.caseInsensitiveCompare(r.name)==.orderedSame}) else { return nil }
+                                                                             ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure; this is an error in the Swift 6 language mode
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:58:18: warning: concurrently-executed local function 'finish' must be marked as '@Sendable'
+            func finish(_ result:Result<Data,Error>){ if gate.claim(){ continuation.resume(with:result); connection.cancel() } }
+                 ^
+            @Sendable
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:66:93: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+                        else { connection.receiveMessage { data,_,_,error in if let error { finish(.failure(error)) } else if let data { finish(.success(data)) } else { finish(.failure(DNSError.network)) } } }
+                                                                                            ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:66:93: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        else { connection.receiveMessage { data,_,_,error in if let error { finish(.failure(error)) } else if let data { finish(.success(data)) } else { finish(.failure(DNSError.network)) } } }
+                                                                                            ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:74:67: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+            DispatchQueue.global().asyncAfter(deadline:.now()+5){ finish(.failure(DNSError.timeout)) }
+                                                                  ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:74:67: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+            DispatchQueue.global().asyncAfter(deadline:.now()+5){ finish(.failure(DNSError.timeout)) }
+                                                                  ^
+
+Failed frontend command:
+/Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift -supplementary-output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/supplementaryOutputs-1 -target arm64-apple-ios17.0-simulator -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -no-color-diagnostics -application-extension -g -debug-info-format\=dwarf -dwarf-version\=4 -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -swift-version 5 -enforce-exclusivity\=checked -O -serialize-debugging-options -const-gather-protocols-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -strict-concurrency\=targeted -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /tmp/recursive-dns-build.yh278k/recursive-dns-ios -resource-dir /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -file-compilation-dir /tmp/recursive-dns-build.yh278k/recursive-dns-ios -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -module-name RecursiveDNSProxy -frontend-parseable-output -disable-clang-spi -target-sdk-version 18.5 -target-sdk-name iphonesimulator18.5 -external-plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins\#/Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server -external-plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/lib/swift/host/plugins\#/Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server -in-process-plugin-server-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins -plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/lib/swift/host/plugins -enable-default-cmo -num-threads 6 -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/DNSProxyProvider.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/DNSWire.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/IterativeResolver.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/Preferences.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/DNSProxyProvider.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/DNSWire.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/IterativeResolver.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/Preferences.o
+SwiftCompile normal x86_64 Compiling\ DNSProxyProvider.swift,\ DNSWire.swift,\ IterativeResolver.swift,\ Preferences.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+CompileSwift normal x86_64 (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:22:32: error: '=' must have consistent whitespace on both sides
+                cache[question]=.init(response:withID(final,0),expiry:Date().addingTimeInterval(TimeInterval(ttl))); return final
+                               ^
+
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:26:78: error: '==' is not a postfix unary operator
+                guard names.contains(where:{$0.caseInsensitiveCompare(r.name)==.orderedSame}) else { return nil }
+                                                                             ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure; this is an error in the Swift 6 language mode
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:64:40: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        if let error { finish(.failure(error)); return }
+                                       ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:58:18: warning: concurrently-executed local function 'finish' must be marked as '@Sendable'
+            func finish(_ result:Result<Data,Error>){ if gate.claim(){ continuation.resume(with:result); connection.cancel() } }
+                 ^
+            @Sendable
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:66:93: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+                        else { connection.receiveMessage { data,_,_,error in if let error { finish(.failure(error)) } else if let data { finish(.success(data)) } else { finish(.failure(DNSError.network)) } } }
+                                                                                            ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:66:93: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+                        else { connection.receiveMessage { data,_,_,error in if let error { finish(.failure(error)) } else if let data { finish(.success(data)) } else { finish(.failure(DNSError.network)) } } }
+                                                                                            ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:74:67: warning: capture of 'finish' with non-sendable type '(Result<Data, any Error>) -> ()' in a '@Sendable' closure
+            DispatchQueue.global().asyncAfter(deadline:.now()+5){ finish(.failure(DNSError.timeout)) }
+                                                                  ^
+/tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift:74:67: note: a function type must be marked '@Sendable' to conform to 'Sendable'
+            DispatchQueue.global().asyncAfter(deadline:.now()+5){ finish(.failure(DNSError.timeout)) }
+                                                                  ^
+
+Failed frontend command:
+/Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift -supplementary-output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/supplementaryOutputs-2 -target x86_64-apple-ios17.0-simulator -enable-objc-interop -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -no-color-diagnostics -application-extension -g -debug-info-format\=dwarf -dwarf-version\=4 -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -swift-version 5 -enforce-exclusivity\=checked -O -serialize-debugging-options -const-gather-protocols-file /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -strict-concurrency\=targeted -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /tmp/recursive-dns-build.yh278k/recursive-dns-ios -resource-dir /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -file-compilation-dir /tmp/recursive-dns-build.yh278k/recursive-dns-ios -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -module-name RecursiveDNSProxy -frontend-parseable-output -disable-clang-spi -target-sdk-version 18.5 -target-sdk-name iphonesimulator18.5 -external-plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins\#/Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server -external-plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/local/lib/swift/host/plugins\#/Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server -in-process-plugin-server-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins -plugin-path /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/local/lib/swift/host/plugins -enable-default-cmo -num-threads 6 -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/DNSProxyProvider.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/DNSWire.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/IterativeResolver.o -o /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/Preferences.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/DNSProxyProvider.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/DNSWire.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/IterativeResolver.o -index-unit-output-path /RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/Preferences.o
+SwiftDriver\ Compilation\ Requirements RecursiveDNSProxy normal arm64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/arm64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/arm64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+SwiftDriver\ Compilation\ Requirements RecursiveDNSProxy normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+    cd /tmp/recursive-dns-build.yh278k/recursive-dns-ios
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode-16.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name RecursiveDNSProxy -O -whole-module-optimization -enforce-exclusivity\=checked @/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.SwiftFileList -strict-concurrency\=targeted -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode-16.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -swift-version 5 -I /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -F /tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator -c -num-threads 6 -Xcc -ivfsstatcache -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/SDKStatCaches.noindex/iphonesimulator18.5-22F76-cb3c8d741b2b0e6ad11e9048af5b16a5.sdkstatcache -output-file-map /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/recursive-dns-build.yh278k/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-generated-files.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-own-target-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/RecursiveDNSProxy-project-headers.hmap -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Products/Release-iphonesimulator/include -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources/x86_64 -Xcc -I/tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/recursive-dns-build.yh278k/DerivedData/Build/Intermediates.noindex/RecursiveDNS.build/Release-iphonesimulator/RecursiveDNSProxy.build/Objects-normal/x86_64/RecursiveDNSProxy-Swift.h -working-directory /tmp/recursive-dns-build.yh278k/recursive-dns-ios -no-emit-module-separately-wmo
+
+note: Disabling previews because SWIFT_VERSION is set and SWIFT_OPTIMIZATION_LEVEL=-O, expected -Onone (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+note: Disabling previews because SWIFT_VERSION is set and SWIFT_OPTIMIZATION_LEVEL=-O, expected -Onone (in target 'RecursiveDNS' from project 'RecursiveDNS')
+** BUILD FAILED **
+
+
+The following build commands failed:
+        CompileSwift normal arm64 (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+        SwiftCompile normal arm64 Compiling\ DNSProxyProvider.swift,\ DNSWire.swift,\ IterativeResolver.swift,\ Preferences.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+        CompileSwift normal x86_64 (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+        SwiftCompile normal x86_64 Compiling\ DNSProxyProvider.swift,\ DNSWire.swift,\ IterativeResolver.swift,\ Preferences.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Proxy/DNSProxyProvider.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/DNSWire.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Resolver/IterativeResolver.swift /tmp/recursive-dns-build.yh278k/recursive-dns-ios/Shared/Preferences.swift (in target 'RecursiveDNSProxy' from project 'RecursiveDNS')
+        Building project RecursiveDNS with scheme RecursiveDNS and configuration Release
+(5 failures)
+
+<id.zip>: 5jo6t.zip
+
+Linux/macOS/Windows PowerShell
+<command>: scp <//USR//>@<//IP//>:/tmp/5jo6t.zip .
+
+==> Entferne nur die von diesem Lauf installierten Simulator-Runtimes
+
+==> Entferne das von diesem Lauf installierte Xcode
+
+Der Vorgang ist fehlgeschlagen. Temporre Komponenten wurden entfernt.
+<//USR//>@<//HOST//> recursive-dns-ios %
