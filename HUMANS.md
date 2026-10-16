@@ -1,3 +1,5 @@
+hinweiß für appstore: https://florianthepro.github.io/recursive-dns-ios/ sind support und datenschutzseite zu finden
+
 # HUMANS.md
 
 ## Von diesem Repository zur App-Store-Version
