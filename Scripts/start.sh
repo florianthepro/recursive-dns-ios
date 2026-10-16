@@ -11,16 +11,21 @@ SRC="$WORK/recursive-dns-ios"
 DERIVED="$WORK/DerivedData"
 LOGS="$WORK/logs"
 PACKAGE="$WORK/package"
+BEFORE_RUNTIMES="$WORK/runtimes-before.txt"
+AFTER_RUNTIMES="$WORK/runtimes-after.txt"
+NEW_RUNTIMES="$WORK/runtimes-new.txt"
+
 XCODES=""
 XCODEGEN=""
 INSTALLED_XCODE=""
 KEEPALIVE=""
-NEW_RUNTIME_IDS="$WORK/new-runtime-ids.txt"
-BEFORE_RUNTIME_IDS="$WORK/before-runtime-ids.txt"
-AFTER_RUNTIME_IDS="$WORK/after-runtime-ids.txt"
+RESULT_ZIP=""
+BUILD_OK=0
 
 mkdir -p "$TOOLS" "$LOGS" "$PACKAGE"
-: > "$NEW_RUNTIME_IDS"
+: > "$BEFORE_RUNTIMES"
+: > "$AFTER_RUNTIMES"
+: > "$NEW_RUNTIMES"
 
 say() { printf '\n==> %s\n' "$*"; }
 die() { printf '\nFEHLER: %s\n' "$*" >&2; exit 1; }
@@ -29,10 +34,12 @@ version_ge() {
   awk -v have="$1" -v need="$2" 'BEGIN {
     split(have,h,"."); split(need,n,".");
     for (i=1;i<=4;i++) {
-      hv=(h[i]==""?0:h[i])+0; nv=(n[i]==""?0:n[i])+0;
-      if (hv>nv) exit 0; if (hv<nv) exit 1
+      hv=(h[i]==""?0:h[i])+0;
+      nv=(n[i]==""?0:n[i])+0;
+      if (hv>nv) exit 0;
+      if (hv<nv) exit 1;
     }
-    exit 0
+    exit 0;
   }'
 }
 
@@ -42,23 +49,68 @@ runtime_ids() {
     | sort -u
 }
 
+make_result_zip() {
+  local result_type="$1"
+  local id
+  id="$(LC_ALL=C tr -dc 'a-z0-9' </dev/urandom | head -c 5)"
+  RESULT_ZIP="/tmp/${id}.zip"
+
+  mkdir -p "$PACKAGE/logs"
+  cp -R "$LOGS/." "$PACKAGE/logs/" 2>/dev/null || true
+
+  if [[ -d "$SRC" ]]; then
+    mkdir -p "$PACKAGE/source"
+    ditto "$SRC" "$PACKAGE/source/recursive-dns-ios" 2>/dev/null || true
+  fi
+
+  if [[ "$result_type" == "success" ]]; then
+    cat > "$PACKAGE/README-FIRST.txt" <<'TXT'
+Build erfolgreich.
+
+Enthalten:
+- source/recursive-dns-ios: vollständiges Repository mit erzeugtem Xcode-Projekt
+- build/RecursiveDNS-Simulator.app: kompilierte, unsignierte Simulator-App
+- logs: Prüf-, Runtime-, Projekt- und Buildprotokolle
+
+Die Simulator-App ist nicht auf einem echten iPhone installierbar. Nach Aktivierung des Apple Developer Program das Projekt öffnen, das bezahlte Team für App und Extension wählen, App Group sowie Network Extensions > DNS Proxy prüfen, auf einem echten iPhone testen und Product > Archive ausführen.
+TXT
+  else
+    cat > "$PACKAGE/README-FIRST.txt" <<'TXT'
+Build fehlgeschlagen.
+
+Diese ZIP enthält den bis zum Fehler erzeugten Quellstand und sämtliche verfügbaren Protokolle. Maßgeblich ist logs/build.log beziehungsweise das letzte erzeugte Protokoll.
+TXT
+  fi
+
+  ditto -c -k --sequesterRsrc --keepParent "$PACKAGE" "$RESULT_ZIP"
+  chmod 644 "$RESULT_ZIP"
+}
+
+print_download() {
+  local ip
+  ip="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
+  [[ -n "$ip" ]] || ip="MAC_IP"
+  printf '\n<id.zip>: %s\n\n' "$(basename "$RESULT_ZIP")"
+  printf 'Linux/macOS/Windows PowerShell\n'
+  printf '<command>: scp %s@%s:%s .\n' "$USER" "$ip" "$RESULT_ZIP"
+}
+
 cleanup() {
   local rc=$?
   set +e
 
-  if [[ -n "$KEEPALIVE" ]]; then
-    kill "$KEEPALIVE" 2>/dev/null || true
-  fi
-
-  if [[ -s "$NEW_RUNTIME_IDS" ]] && command -v xcrun >/dev/null 2>&1; then
-    say "Entferne nur die von diesem Lauf installierten Simulator-Runtimes"
-    while IFS= read -r runtime_id; do
-      [[ -n "$runtime_id" ]] && xcrun simctl runtime delete "$runtime_id" >/dev/null 2>&1 || true
-    done < "$NEW_RUNTIME_IDS"
-  fi
+  [[ -n "$KEEPALIVE" ]] && kill "$KEEPALIVE" 2>/dev/null || true
 
   if [[ -n "$XCODES" && -x "$XCODES" ]]; then
     "$XCODES" signout >/dev/null 2>&1 || true
+  fi
+
+  if [[ -s "$NEW_RUNTIMES" ]] && command -v xcrun >/dev/null 2>&1; then
+    say "Entferne nur die von diesem Lauf installierten Simulator-Runtimes"
+    while IFS= read -r runtime_id; do
+      [[ -n "$runtime_id" ]] || continue
+      xcrun simctl runtime delete "$runtime_id" >/dev/null 2>&1 || true
+    done < "$NEW_RUNTIMES"
   fi
 
   if [[ -n "$INSTALLED_XCODE" && -d "$INSTALLED_XCODE" ]]; then
@@ -70,10 +122,21 @@ cleanup() {
   rm -rf "$WORK"
 
   if [[ $rc -ne 0 ]]; then
-    printf '\nFehlgeschlagen. Temporäre Werkzeuge, Build-Dateien und von diesem Lauf installierte Apple-Komponenten wurden entfernt.\n' >&2
+    printf '\nDer Vorgang ist fehlgeschlagen. Temporäre Komponenten wurden entfernt.\n' >&2
   fi
 }
 trap cleanup EXIT INT TERM
+
+on_error() {
+  local rc=$?
+  set +e
+  if [[ -z "$RESULT_ZIP" ]]; then
+    make_result_zip failure
+    print_download
+  fi
+  exit "$rc"
+}
+trap on_error ERR
 
 [[ "$(uname -s)" == "Darwin" ]] || die "Dieses Skript läuft nur auf macOS."
 ARCH="$(uname -m)"
@@ -89,10 +152,7 @@ KEEPALIVE=$!
 say "Lade xcodes CLI temporär"
 XCODES_JSON="$WORK/xcodes-release.json"
 curl -fsSL --retry 3 https://api.github.com/repos/XcodesOrg/xcodes/releases/latest -o "$XCODES_JSON"
-XCODES_URL="$(sed -n 's/.*"browser_download_url": "\([^"]*\)".*/\1/p' "$XCODES_JSON" \
-  | grep -Ei '/xcodes[^/]*\.zip$' \
-  | grep -Evi '(dsym|checksum|source)' \
-  | head -n 1 || true)"
+XCODES_URL="$(sed -n 's/.*"browser_download_url": "\([^"]*\)".*/\1/p' "$XCODES_JSON" | grep -Ei '/xcodes[^/]*\.zip$' | grep -Evi '(dsym|checksum|source)' | head -n 1 || true)"
 [[ -n "$XCODES_URL" ]] || die "Kein passendes xcodes-Release gefunden."
 curl -fL --retry 3 "$XCODES_URL" -o "$WORK/xcodes.zip"
 ditto -x -k "$WORK/xcodes.zip" "$TOOLS/xcodes"
@@ -141,28 +201,24 @@ sudo xcodebuild -license accept
 sudo xcodebuild -runFirstLaunch
 xcodebuild -version
 
-runtime_ids > "$BEFORE_RUNTIME_IDS" || true
+runtime_ids > "$BEFORE_RUNTIMES" || true
 
-say "Installiere die zu Xcode passende iOS-Plattform und Simulator-Runtime"
-xcodebuild -downloadPlatform iOS | tee "$LOGS/platform-download.log"
+say "Installiere die aktuelle iOS-Simulator-Runtime"
+xcodebuild -downloadPlatform iOS 2>&1 | tee "$LOGS/platform-download.log"
 
-runtime_ids > "$AFTER_RUNTIME_IDS" || true
-comm -13 "$BEFORE_RUNTIME_IDS" "$AFTER_RUNTIME_IDS" > "$NEW_RUNTIME_IDS" || true
+runtime_ids > "$AFTER_RUNTIMES" || true
+comm -13 "$BEFORE_RUNTIMES" "$AFTER_RUNTIMES" > "$NEW_RUNTIMES" || true
 xcrun simctl runtime list | tee "$LOGS/runtimes.log"
 xcodebuild -showsdks | tee "$LOGS/sdks.log"
-xcodebuild -showdestinations -project /dev/null 2>/dev/null || true
 
-if ! xcrun simctl runtime list | grep -q 'iOS 18.5'; then
-  die "Die iOS-18.5-Simulator-Runtime wurde trotz Download nicht registriert."
+if ! xcrun simctl runtime list | grep -Eq '^iOS [0-9.]+ .*\(Ready\)$'; then
+  die "Es wurde keine betriebsbereite iOS-Simulator-Runtime registriert."
 fi
 
 say "Lade XcodeGen temporär"
 XG_JSON="$WORK/xcodegen-release.json"
 curl -fsSL --retry 3 https://api.github.com/repos/yonaskolb/XcodeGen/releases/latest -o "$XG_JSON"
-XG_URL="$(sed -n 's/.*"browser_download_url": "\([^"]*\)".*/\1/p' "$XG_JSON" \
-  | grep -Ei '/xcodegen[^/]*\.zip$' \
-  | grep -Evi '(dsym|checksum|source)' \
-  | head -n 1 || true)"
+XG_URL="$(sed -n 's/.*"browser_download_url": "\([^"]*\)".*/\1/p' "$XG_JSON" | grep -Ei '/xcodegen[^/]*\.zip$' | grep -Evi '(dsym|checksum|source)' | head -n 1 || true)"
 [[ -n "$XG_URL" ]] || die "Kein passendes XcodeGen-Release gefunden."
 curl -fL --retry 3 "$XG_URL" -o "$WORK/xcodegen.zip"
 ditto -x -k "$WORK/xcodegen.zip" "$TOOLS/xcodegen"
@@ -181,17 +237,17 @@ chmod +x Scripts/*.sh 2>/dev/null || true
 
 say "Prüfe Repository"
 if [[ -x Scripts/verify.sh ]]; then
-  ./Scripts/verify.sh | tee "$LOGS/verify.log"
+  ./Scripts/verify.sh 2>&1 | tee "$LOGS/verify.log"
 fi
 
 say "Erzeuge Xcode-Projekt"
-"$XCODEGEN" generate | tee "$LOGS/xcodegen.log"
+"$XCODEGEN" generate 2>&1 | tee "$LOGS/xcodegen.log"
 [[ -d RecursiveDNS.xcodeproj ]] || die "RecursiveDNS.xcodeproj wurde nicht erzeugt."
 
 say "Prüfe verfügbare Build-Ziele"
-xcodebuild -project RecursiveDNS.xcodeproj -scheme "$SCHEME" -showdestinations | tee "$LOGS/destinations.log"
+xcodebuild -project RecursiveDNS.xcodeproj -scheme "$SCHEME" -showdestinations 2>&1 | tee "$LOGS/destinations.log"
 if ! grep -q 'platform:iOS Simulator' "$LOGS/destinations.log"; then
-  die "Xcode meldet weiterhin kein iOS-Simulator-Ziel."
+  die "Xcode meldet kein iOS-Simulator-Ziel."
 fi
 
 say "Baue App und DNS-Proxy-Extension für den iOS-Simulator"
@@ -214,30 +270,11 @@ APP="$(find "$DERIVED/Build/Products" -type d -path '*Release-iphonesimulator/Re
 [[ -n "$APP" && -d "$APP" ]] || die "RecursiveDNS.app wurde nach erfolgreichem Build nicht gefunden."
 
 say "Packe Repository, Xcode-Projekt, Simulator-App und Protokolle"
-mkdir -p "$PACKAGE/source" "$PACKAGE/build" "$PACKAGE/logs"
-ditto "$SRC" "$PACKAGE/source/recursive-dns-ios"
+mkdir -p "$PACKAGE/build"
 ditto "$APP" "$PACKAGE/build/RecursiveDNS-Simulator.app"
-cp -R "$LOGS/." "$PACKAGE/logs/"
-cat > "$PACKAGE/README-FIRST.txt" <<'TXT'
-Dieses Paket enthält:
-
-- source/recursive-dns-ios: vollständiges Repository einschließlich erzeugtem Xcode-Projekt
-- build/RecursiveDNS-Simulator.app: kompilierter, unsignierter Simulator-Build
-- logs: Repository-, Runtime-, Projekt- und Build-Protokolle
-
-Der Simulator-Build ist nicht auf einem echten iPhone installierbar. Nach Aktivierung des Apple Developer Program das Projekt auf einem Mac öffnen, das bezahlte Team für App und Extension wählen, App Group sowie Network Extensions > DNS Proxy prüfen, auf einem echten iPhone testen und anschließend Product > Archive ausführen.
-TXT
-
-ID="$(LC_ALL=C tr -dc 'a-z0-9' </dev/urandom | head -c 5)"
-ZIP="/tmp/${ID}.zip"
-ditto -c -k --sequesterRsrc --keepParent "$PACKAGE" "$ZIP"
-chmod 644 "$ZIP"
-
-IP="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
-[[ -n "$IP" ]] || IP="MAC_IP"
+BUILD_OK=1
+make_result_zip success
 
 clear
-printf '<id.zip>: %s.zip\n\n' "$ID"
-printf 'Linux/macOS/Windows PowerShell\n'
-printf '<command>: scp %s@%s:%s .\n\n' "$USER" "$IP" "$ZIP"
-printf 'Der Build ist fertig. Installiertes Xcode, neue Simulator-Runtime, xcodes, XcodeGen, Anmeldesitzung und temporäre Arbeitsdateien werden nun entfernt.\n'
+print_download
+printf '\nDer Build ist fertig. Von diesem Lauf installierte Komponenten werden jetzt sauber entfernt.\n'
