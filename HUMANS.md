@@ -1,5 +1,7 @@
 hinweiß für appstore: https://florianthepro.github.io/recursive-dns-ios/ sind support und datenschutzseite zu finden
 
+https://github.com/florianthepro/recursive-dns-ios/tree/main/Scripts/build hatte glückicherweiße einen mac von einem freund per ssh nutzen können und starten versucht aber das ist nicht das ware und fehlerbehaftet
+
 # HUMANS.md
 
 ## Von diesem Repository zur App-Store-Version
