@@ -1,5 +1,5 @@
 > [!CAUTION]
-> Disclaimer: This repository was created using AI.
+> Disclaimer: This repository was created under use of AI.
 
 # Recursive DNS
 
